@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88970a0117c062eed55fa8728fc43833",
+    "content-hash": "b65c22d5033833ed8ba09fc4638b62c2",
     "packages": [
         {
             "name": "brick/math",
@@ -5784,6 +5784,119 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "workos/workos-php",
+            "version": "v4.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/workos/workos-php.git",
+                "reference": "f8d7b964bb9b56c4f980423b840da36b2e6a3370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/workos/workos-php/zipball/f8d7b964bb9b56c4f980423b840da36b2e6a3370",
+                "reference": "f8d7b964bb9b56c4f980423b840da36b2e6a3370",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15|^3.6",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WorkOS\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WorkOS",
+                    "email": "eng@workos.com"
+                }
+            ],
+            "description": "WorkOS PHP Library",
+            "homepage": "https://workos.com",
+            "support": {
+                "issues": "https://github.com/workos/workos-php/issues",
+                "source": "https://github.com/workos/workos-php/tree/v4.22.0"
+            },
+            "time": "2025-03-21T19:08:31+00:00"
+        },
+        {
+            "name": "workos/workos-php-laravel",
+            "version": "v4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/workos/workos-php-laravel.git",
+                "reference": "2191f7284562726f53a88683a9622c13548d7fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/workos/workos-php-laravel/zipball/2191f7284562726f53a88683a9622c13548d7fc2",
+                "reference": "2191f7284562726f53a88683a9622c13548d7fc2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "workos/workos-php": "^v4.14.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15 || ^3.6",
+                "phpunit/phpunit": "^5.7 || ^10.1"
+            },
+            "suggest": {
+                "laravel/framework": "For testing"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WorkOS\\Laravel\\WorkOSServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WorkOS\\Laravel\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WorkOS",
+                    "email": "support@workos.com"
+                }
+            ],
+            "description": "WorkOS PHP Library for Laravel",
+            "keywords": [
+                "SSO",
+                "laravel",
+                "laravel 10",
+                "laravel 5",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "laravel 9",
+                "sdk",
+                "workos"
+            ],
+            "support": {
+                "issues": "https://github.com/workos/workos-php-laravel/issues",
+                "source": "https://github.com/workos/workos-php-laravel/tree/v4.1.0"
+            },
+            "time": "2024-10-22T16:22:04+00:00"
         }
     ],
     "packages-dev": [
@@ -5971,6 +6084,67 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel/breeze",
+            "version": "v2.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "390cbc433cb72fa6050965000b2d56c9ba6fd713"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/390cbc433cb72fa6050965000b2d56c9ba6fd713",
+                "reference": "390cbc433cb72fa6050965000b2d56c9ba6fd713",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^11.0|^12.0",
+                "illuminate/filesystem": "^11.0|^12.0",
+                "illuminate/support": "^11.0|^12.0",
+                "illuminate/validation": "^11.0|^12.0",
+                "php": "^8.2.0",
+                "symfony/console": "^7.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^11.0|^12.0",
+                "orchestra/testbench-core": "^9.0|^10.0",
+                "phpstan/phpstan": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Breeze\\BreezeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Breeze\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/breeze/issues",
+                "source": "https://github.com/laravel/breeze"
+            },
+            "time": "2025-03-06T14:02:32+00:00"
         },
         {
             "name": "laravel/pail",
