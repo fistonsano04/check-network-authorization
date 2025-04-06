@@ -38,11 +38,12 @@
                             Check IP address
                         </div>
                     </button>
-                    <button class="btn card col-sm-4 mx-5 bg-warning border-0 text-light">
+                    <button class="btn card col-sm-4 mx-5 bg-warning border-0 text-light" onclick="disconnectNetwork()">
                         <div class="card-body">
-                            Check IP address
+                            Disconnect Network
                         </div>
                     </button>
+
                 </div>
 
             </div>
@@ -68,7 +69,7 @@
                     // Get location and other details (using ip-api.com)
                     const detailsResponse = await fetch(
                         `http://ip-api.com/json/${ipData.ip}?fields=status,message,continent,country,regionName,city,isp,org,as,mobile,proxy,hosting,query`
-                        );
+                    );
                     const detailsData = await detailsResponse.json();
 
                     // Get bandwidth information (simulated)
@@ -76,7 +77,7 @@
 
                     // Get connection type
                     const connectionType = navigator.connection ? navigator.connection.effectiveType :
-                    'Unknown';
+                        'Unknown';
 
                     // Get network status
                     const networkStatus = navigator.onLine ? 'Online' : 'Offline';
@@ -180,5 +181,93 @@
                 });
             };
         });
+    </script>
+
+
+    <script>
+        // Global variable to track network status
+        let networkStatus = {
+            connected: true,
+            manuallyDisabled: false
+        };
+
+        // Modified network info function to respect manual disconnection
+        async function getNetworkInfo() {
+            if (networkStatus.manuallyDisabled) {
+                return {
+                    ip: "N/A (Disconnected)",
+                    location: {
+                        city: "N/A",
+                        regionName: "N/A",
+                        country: "N/A",
+                        isp: "N/A",
+                        org: "N/A",
+                        mobile: false,
+                        proxy: false
+                    },
+                    bandwidth: {
+                        download: "0 Mbps",
+                        upload: "0 Mbps",
+                        latency: "∞ ms"
+                    },
+                    connectionType: "Disconnected",
+                    networkStatus: "Offline (Manually Disabled)",
+                    timestamp: new Date().toLocaleString()
+                };
+            }
+
+            // Original network info code here...
+            // (Keep the same implementation from previous example)
+        }
+
+        // Disconnect Network Function
+        window.disconnectNetwork = async function() {
+            const {
+                value: confirm
+            } = await Swal.fire({
+                title: 'Disconnect Network?',
+                text: "This will simulate network disconnection. Continue?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Disconnect',
+                cancelButtonText: 'Cancel'
+            });
+
+            if (confirm) {
+                // Simulate network disconnection
+                networkStatus.manuallyDisabled = true;
+
+                Swal.fire({
+                    title: 'Network Disconnected',
+                    html: `
+                    <div style="text-align: center;">
+                        <div style="font-size: 5rem; color: #dc3545;">
+                            <i class="bi bi-wifi-off"></i>
+                        </div>
+                        <p style="margin-top: 20px;">Your network connection has been manually disabled.</p>
+                        <div style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-top: 15px;">
+                            <p><strong>Note:</strong> This is a simulation. Your actual network connection remains active.</p>
+                        </div>
+                    </div>
+                `,
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
+                });
+
+                // Update any active network info displays
+                if (document.querySelector('.swal2-container')) {
+                    setTimeout(showNetworkInfo, 1500);
+                }
+            }
+        };
+
+        // Reconnect function (optional - could add a reconnect button)
+        window.reconnectNetwork = function() {
+            networkStatus.manuallyDisabled = false;
+            showNetworkInfo();
+        };
     </script>
 @endsection
