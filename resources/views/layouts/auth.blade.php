@@ -10,7 +10,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url('assets/css/auth.css') }}">
     <!-- JS -->
-    <link rel="stylesheet" href="{{ url('assets/js/auth.js') }}">
+    <script src="{{ url('assets/js/auth.js') }}"></script>
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
